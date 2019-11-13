@@ -1,4 +1,6 @@
-IPCNA
+*IPCNA
+
+
 ICPNA - Chiclayo INSTITUTO CULTURAL PERUANO NORTEAMERICANO
 
 ¿Quiénes Somos? El Instituto Cultural Peruano Norteamericano de Chiclayo fue fundado en 1957 con el objetivo de
