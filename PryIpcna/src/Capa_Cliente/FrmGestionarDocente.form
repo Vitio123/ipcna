@@ -30,7 +30,7 @@
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtCodDocente" min="-2" pref="135" max="-2" attributes="0"/>
+                      <Component id="txtCodDocente" pref="134" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -60,7 +60,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnVerDocente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="70" max="32767" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnRegistrar" min="-2" pref="146" max="-2" attributes="0"/>
                   <Component id="btnModificar" min="-2" pref="146" max="-2" attributes="0"/>
@@ -91,8 +91,8 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCodDocente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnVerDocente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCodDocente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -133,7 +133,7 @@
                       <Component id="jButton4" min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="275" max="-2" attributes="0"/>
@@ -148,14 +148,15 @@
         <Property name="text" type="java.lang.String" value="C&#xf3;digo del Docente:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodDocente">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Documento de identidad:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDocIdentidad">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDocIdentidadKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -178,12 +179,24 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEspecialidad">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEspecialidadKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtApellidos">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtApellidosKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTitulo">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTituloKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombre">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNombreKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -251,12 +264,18 @@
     <Component class="javax.swing.JComboBox" name="cboSexo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Masculino"/>
-            <StringItem index="1" value="Femenino"/>
+          <StringArray count="3">
+            <StringItem index="0" value="Sin asignar"/>
+            <StringItem index="1" value="Masculino"/>
+            <StringItem index="2" value="Femenino"/>
           </StringArray>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCodDocente">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCodDocenteKeyTyped"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

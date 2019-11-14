@@ -33,7 +33,6 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtCodDocente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtDocIdentidad = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -54,6 +53,7 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         cboSexo = new javax.swing.JComboBox();
+        txtCodDocente = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -63,6 +63,12 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Documento de identidad:");
 
+        txtDocIdentidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDocIdentidadKeyTyped(evt);
+            }
+        });
+
         jLabel3.setText("Nombre:");
 
         jLabel4.setText("Apellidos:");
@@ -70,6 +76,30 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
         jLabel5.setText("Título:");
 
         jLabel6.setText("Especialidad:");
+
+        txtEspecialidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEspecialidadKeyTyped(evt);
+            }
+        });
+
+        txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidosKeyTyped(evt);
+            }
+        });
+
+        txtTitulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTituloKeyTyped(evt);
+            }
+        });
+
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("Gestionar Docente:");
@@ -114,7 +144,13 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Sexo:");
 
-        cboSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
+        cboSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sin asignar", "Masculino", "Femenino" }));
+
+        txtCodDocente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodDocenteKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,7 +162,7 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
                         .addGap(59, 59, 59)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCodDocente, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +185,7 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
                                     .addComponent(cboSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(18, 18, 18)
                 .addComponent(btnVerDocente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,8 +210,8 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(txtCodDocente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnVerDocente))
+                            .addComponent(btnVerDocente)
+                            .addComponent(txtCodDocente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -206,7 +242,7 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
                         .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,6 +255,42 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
     
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        if(txtCodDocente.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingresar Codigo del Docente", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            txtCodDocente.requestFocus();
+            return;
+        }
+        if(txtDocIdentidad.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingresar Documento de Identidad", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            txtDocIdentidad.requestFocus();
+            return;
+        }
+        if(txtNombre.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingresar Nombre del Docente", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            txtNombre.requestFocus();
+            return;
+        }
+        if(txtApellidos.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingresar Apellidos del Docente", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            txtApellidos.requestFocus();
+            return;
+        }
+        if(cboSexo.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(this, "Ingresar Sexo del Docente", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            cboSexo.requestFocus();
+            return;
+        }
+        if(txtTitulo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingresar Titulo del Docente", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            txtTitulo.requestFocus();
+            return;
+        }
+        if(txtEspecialidad.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingresar Especialidad del Docente", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            txtEspecialidad.requestFocus();
+            return;
+        }
+        
         String codDocente = txtCodDocente.getText();
         String docIdentidad = txtDocIdentidad.getText();
         String nombre = txtNombre.getText();
@@ -303,6 +375,50 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this,"Docente no registrado","Sistema",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerDocenteActionPerformed
+
+    private void txtCodDocenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodDocenteKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)||txtCodDocente.getText().length()==6){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCodDocenteKeyTyped
+
+    private void txtDocIdentidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDocIdentidadKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c)||txtDocIdentidad.getText().length()==8){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDocIdentidadKeyTyped
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c))
+            evt.consume();
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c))
+            evt.consume();
+    }//GEN-LAST:event_txtApellidosKeyTyped
+
+    private void txtTituloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTituloKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c))
+            evt.consume();
+    }//GEN-LAST:event_txtTituloKeyTyped
+
+    private void txtEspecialidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEspecialidadKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isDigit(c))
+            evt.consume();
+    }//GEN-LAST:event_txtEspecialidadKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
