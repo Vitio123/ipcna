@@ -18,9 +18,7 @@ public class Lista_Docentes {
      public static TLista Consultar(){
         return docentes;
     }
-    public static TLista obtener(){
-    return docentes;}
-    
+   
     public int BuscarDocente(String codDocente){
         for(int i=0; i<docentes.Cantidad();i++){
             Docente objDocente = (Docente)docentes.Obtener(i);
