@@ -199,7 +199,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        FrmRegistrarDocente obj = new FrmRegistrarDocente();
+        FrmGestionarDocente obj = new FrmGestionarDocente();
         jPanel1.add(obj);
         obj.setVisible(true);
                 desaparecer();

@@ -1,5 +1,8 @@
 package Capa_Logica;
 
+import Capa_Datos.Lista_Estudiantes;
+import TListas.TLista;
+
 public class Estudiante {
 
 	private String nombre;
@@ -98,5 +101,16 @@ public class Estudiante {
 	 * egresado
 	 */
 	
-
+  //PARTE LOGICA
+    //Metodo de verificacion documentoIdentidad
+    public static int verificacionDocIden(String documento) {
+        TLista lista = Lista_Estudiantes.obtener();
+        for (int i = 0; i < lista.Cantidad(); i++) {
+            Estudiante obj = (Estudiante) lista.Obtener(i);
+            if (obj.getDocumentoIdentidad().equalsIgnoreCase(documento)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
