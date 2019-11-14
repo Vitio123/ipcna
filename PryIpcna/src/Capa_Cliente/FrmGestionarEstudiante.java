@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author USER
  */
-public class FrmRegistroEstudiante extends javax.swing.JInternalFrame {
+public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmRegistroEstudiante
      */
-    public FrmRegistroEstudiante() {
+    public FrmGestionarEstudiante() {
         initComponents();
     }
 
