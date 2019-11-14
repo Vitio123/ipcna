@@ -161,8 +161,7 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodDocente, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                        .addGap(0, 138, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +181,8 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
                                     .addComponent(txtTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                                     .addComponent(txtApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                                    .addComponent(cboSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(cboSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtCodDocente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))))))
                 .addGap(18, 18, 18)
                 .addComponent(btnVerDocente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
@@ -242,7 +242,7 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
                         .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -376,14 +376,6 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnVerDocenteActionPerformed
 
-    private void txtCodDocenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodDocenteKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if(!Character.isDigit(c)||txtCodDocente.getText().length()==6){
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtCodDocenteKeyTyped
-
     private void txtDocIdentidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDocIdentidadKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
@@ -419,6 +411,10 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
         if(Character.isDigit(c))
             evt.consume();
     }//GEN-LAST:event_txtEspecialidadKeyTyped
+
+    private void txtCodDocenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodDocenteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodDocenteKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
