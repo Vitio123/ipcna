@@ -2,10 +2,10 @@ package Capa_Logica;
 import java.util.Calendar;
 public class NivelEstudiado {
 
-	private char grupo;
+	
 	private Calendar fechaInicio;
 	private int vacantes;
-	private String codigoGrupo;
+	private String Grupo;
 	private String codPrograma;
 	/**
 	 * estudios de
@@ -16,14 +16,6 @@ public class NivelEstudiado {
 	private int codigoHorario;
 	private String codigoDocente;
 
-    public char getGrupo() {
-        return grupo;
-    }
-
-    public void setGrupo(char grupo) {
-        this.grupo = grupo;
-    }
-
     public int getVacantes() {
         return vacantes;
     }
@@ -33,11 +25,11 @@ public class NivelEstudiado {
     }
 
     public String getCodigoGrupo() {
-        return codigoGrupo;
+        return Grupo;
     }
 
     public void setCodigoGrupo(String codigoGrupo) {
-        this.codigoGrupo = codigoGrupo;
+        this.Grupo = codigoGrupo;
     }
 
     public String getCodPrograma() {
@@ -70,6 +62,14 @@ public class NivelEstudiado {
 
     public void setCodigoDocente(String codigoDocente) {
         this.codigoDocente = codigoDocente;
+    }
+
+    public Calendar getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(Calendar fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
 }

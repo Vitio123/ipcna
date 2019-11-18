@@ -6,11 +6,13 @@
 package Capa_Cliente;
 
 import Capa_Datos.Lista_Grupos;
+import Capa_Datos.Lista_Matricula;
 import Capa_Logica.Estudiante;
 import Capa_Logica.Matricula;
 import Capa_Logica.NivelEstudiado;
 import TListas.TLista;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -186,14 +188,51 @@ public class FrmRegistroMatricula extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnVerificarDIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarDIActionPerformed
+public boolean captchaCampos(){
+    if(cboGrupos.getSelectedIndex()==-1)
+    return false;
+    else{
+       if(txtCodMatricula.getText().equalsIgnoreCase(null))
+           return false;
+       else{if(txtMonto.getText().equalsIgnoreCase(null))
+            return false;
+       else{
             if(txtDocIdentidad.getText().equalsIgnoreCase(null))
+                 return false;
+            else{
+             if(jclFechaPago.getCalendar().equals(null))
+                  return false;
+             else{
+                if(cboNivelEstudios.getSelectedIndex()==-1)
+                     return false;}}}}}
+return true;}
+    private void btnVerificarDIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarDIActionPerformed
+         
+        if(txtDocIdentidad.getText().equalsIgnoreCase(null))
                 JOptionPane.showMessageDialog(rootPane, "DEBE INGRESAR UN DOCUMENTO DE IDENTIDAD", "mensaje del sistema", HEIGHT);
             else{
                 String doc =txtDocIdentidad.getText();
                 int captcha =Estudiante.verificacionDocIden(doc);
-              if(captcha !=1){
+         
+            if(captcha ==-1){
+                int desicion = JOptionPane.showConfirmDialog(rootPane, "DOCUMENTO DE IDENTIDAD NO ENCONTRADO--¿DESEA REGISTRAR UN NUEO ESTUDIANTE?");
+                if(desicion == JOptionPane.YES_OPTION){
+                    
+                    FrmGestionarEstudiante obj = new FrmGestionarEstudiante();
+                    obj.setVisible(true);
+                    MenuPrincipal.jPanel1.add(obj);
+                }     
+            
+            }
+        }
+    }//GEN-LAST:event_btnVerificarDIActionPerformed
+
+    private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
+         String doc =txtDocIdentidad.getText();
+        int captcha =Estudiante.verificacionDocIden(doc);
+         
+            if(captcha ==-1){
+                int desicion = JOptionPane.showConfirmDialog(rootPane, "DOCUMENTO DE IDENTIDAD NO ENCONTRADO-- INGRESE UN DOC VALIDO");
                   Matricula m = new Matricula();
                   m.setCodigoGrupo((String) cboGrupos.getSelectedItem());
                   m.setCodigoMatricula(txtCodMatricula.getText());
@@ -201,22 +240,9 @@ public class FrmRegistroMatricula extends javax.swing.JInternalFrame {
                   m.setDocumentoIdentidad(txtDocIdentidad.getText());
                   m.setFechaPago(jclFechaPago.getCalendar());
                   m.setCodNivelEstudiado((String) cboNivelEstudios.getSelectedItem());
-              }
-              else{
-                int desicion = JOptionPane.showConfirmDialog(rootPane, "DOCUMENTO DE IDENTIDAD NO ENCONTRADO--¿DESEA REGISTRAR UN NUEO ESTUDIANTE?");
-                if(desicion == JOptionPane.YES_OPTION){
-                    FrmGestionarEstudiante obj = new FrmGestionarEstudiante();
-                    obj.setVisible(true);
-                }
-              }
+                  Lista_Matricula.registrarMatricula(m);
+        
             }
-       
-    }//GEN-LAST:event_btnVerificarDIActionPerformed
-
-    private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
-        
-        
-        
     }//GEN-LAST:event_btnAsignarActionPerformed
 
 
