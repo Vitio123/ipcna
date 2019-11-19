@@ -5,21 +5,16 @@
  */
 package Capa_Cliente;
 
-import Capa_Datos.Lista_Docentes;
-import Capa_Datos.Lista_Estudiantes;
-import Capa_Logica.Estudiante;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author USER
  */
-public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
+public class FrmRegistroEstudiante extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmRegistroEstudiante
      */
-    public FrmGestionarEstudiante() {
+    public FrmRegistroEstudiante() {
         initComponents();
     }
 
@@ -36,14 +31,14 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtNacionalidad = new javax.swing.JTextField();
-        txtApellido = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        btnRegistrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtDocumento = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -54,9 +49,9 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtTelefono = new javax.swing.JTextField();
-        cboSexo = new javax.swing.JComboBox();
-        cboTipoDocumento = new javax.swing.JComboBox<>();
+        jTextField8 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -68,41 +63,17 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Nacionalidad:");
 
-        txtNacionalidad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNacionalidadKeyTyped(evt);
-            }
-        });
-
-        txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtApellidoKeyTyped(evt);
-            }
-        });
-
-        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNombreKeyTyped(evt);
-            }
-        });
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("Gestionar Estudiantes:");
 
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Registrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Documento De Identidad: ");
-
-        txtDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtDocumentoKeyTyped(evt);
-            }
-        });
 
         jLabel2.setText("Tipo De Documento:");
 
@@ -124,11 +95,6 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
         jButton2.setText("...");
 
         jButton3.setText("Modificar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         jButton4.setText("Eliminar ");
 
@@ -138,15 +104,9 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Teléfono:");
 
-        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTelefonoKeyTyped(evt);
-            }
-        });
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
 
-        cboSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Femenino" }));
-
-        cboTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "Pasaporte" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "Pasaporte" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,7 +120,7 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
                                 .addGap(59, 59, 59)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(33, 33, 33)
                                 .addComponent(jLabel7))
@@ -176,18 +136,18 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNacionalidad)
+                                    .addComponent(jTextField3)
                                     .addComponent(jTextField5)
-                                    .addComponent(txtApellido)
-                                    .addComponent(txtNombre)
-                                    .addComponent(txtTelefono)
-                                    .addComponent(cboSexo, 0, 133, Short.MAX_VALUE)
-                                    .addComponent(cboTipoDocumento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(jTextField4)
+                                    .addComponent(jTextField6)
+                                    .addComponent(jTextField8)
+                                    .addComponent(jComboBox1, 0, 133, Short.MAX_VALUE)
+                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 46, Short.MAX_VALUE))
@@ -210,20 +170,20 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(cboTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -231,17 +191,17 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(cboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -256,129 +216,21 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        //VALIDACION DESPUES DE CLICLEAR EL BOTON 
-        if (txtDocumento.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "DEBE INGRESAR DOCUMENTO DE IDENTIDAD", "SISTEMA", JOptionPane.ERROR_MESSAGE);
-            txtDocumento.requestFocus();
-            return;
-        }
-        if (cboTipoDocumento.getSelectedIndex() == -1) {
-            JOptionPane.showMessageDialog(this, "DEBE SELECCIONAR TIPO DE DOCUMENTO", "SISTEMA", JOptionPane.ERROR_MESSAGE);
-            cboTipoDocumento.requestFocus();
-            return;
-        }
-        if (txtNombre.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "DEBE INGRESAR SU NOMBRE ", "SISTEMA", JOptionPane.ERROR_MESSAGE);
-            txtNombre.requestFocus();
-            return;
-        }
-        if (txtApellido.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "DEBE INGRESAR SU APELLIDO", "SISTEMA", JOptionPane.ERROR_MESSAGE);
-            txtApellido.requestFocus();
-            return;
-        }
-        //aun por ver , si debemos usar jcalender xd :v gaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-        if (txtNacionalidad.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "DEBE INGRESAR SU NACIONALIDAD", "SISTEMA", JOptionPane.ERROR_MESSAGE);
-            txtNacionalidad.requestFocus();
-            return;
-        }
-        if (cboSexo.getSelectedIndex() == -1) {
-            JOptionPane.showMessageDialog(this, "DEBE SELECCIONAR TIPO DE SEXO", "SISTEMA", JOptionPane.ERROR_MESSAGE);
-            cboSexo.requestFocus();
-            return;
-        }
-        if (txtTelefono.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "DEBE INGRESAR SU TELEFONO", "SISTEMA", JOptionPane.ERROR_MESSAGE);
-            txtTelefono.requestFocus();
-            return;
-        }
-        //PARTE LOGICA
-        String Documento = txtDocumento.getText();
-        String tipo = cboTipoDocumento.getSelectedItem().toString();
-        String nombre = txtNombre.getText();
-        String apellido = txtApellido.getText();
-        String nacionalidad = txtNacionalidad.getText();
-        String sexo = cboSexo.getSelectedItem().toString();
-        int telefono = Integer.parseInt(txtTelefono.getText());
-        Estudiante obj = new Estudiante();
-        if (Estudiante.verificacionDocIden(Documento) == -1) {
-            obj.setDocumentoIdentidad(Documento);
-            obj.setTipoDocumento(tipo);
-            obj.setNombre(nombre);
-            obj.setApellidos(apellido);
-            obj.setNacionalidad(nacionalidad);
-            obj.setSexo(sexo);
-            obj.setTelefono(telefono);
-            JOptionPane.showMessageDialog(this, "SE REGISTRO AL ESTUDIANTE CORRECTAMENTE", "SISTEMA", JOptionPane.WARNING_MESSAGE);
-            Lista_Estudiantes.registrarEst(obj);
-        } else {
-            JOptionPane.showMessageDialog(this, "EL ESTUDIANTE YA EXISTE", "SISTEMA", JOptionPane.ERROR_MESSAGE);
-        }
-
-
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void txtDocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDocumentoKeyTyped
-        //VALIDACION TIEMPO REAL
-        char c = evt.getKeyChar();
-        if (!Character.isDigit(c) || txtDocumento.getText().length() == 8) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtDocumentoKeyTyped
-
-    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        //VALIDACION TIEMPO REAL
-        char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
-            evt.consume();
-            /* el metodo consume lo que hace es comer lo que esta 
-        dentro de la condcion,por lo tanto intuimos que es lo contrario :)*/
-        }
-    }//GEN-LAST:event_txtNombreKeyTyped
-
-    private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
-        //VALIDACION TIEMPO REAL
-        char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtApellidoKeyTyped
-
-    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
-        //VALIDACION TIEMPO REAL
-        char c = evt.getKeyChar();
-        if (!Character.isDigit(c) || txtTelefono.getText().length() == 9) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtTelefonoKeyTyped
-
-    private void txtNacionalidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNacionalidadKeyTyped
-        //VALIDACION TIEMPO REAL
-        char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtNacionalidadKeyTyped
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         
 
-
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrar;
-    private javax.swing.JComboBox cboSexo;
-    private javax.swing.JComboBox<String> cboTipoDocumento;
     private Capa_Logica.Estudiante estudiante1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -391,11 +243,11 @@ public class FrmGestionarEstudiante extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtDocumento;
-    private javax.swing.JTextField txtNacionalidad;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
