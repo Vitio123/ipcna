@@ -31,7 +31,13 @@ public class FrmRegistroMatricula extends javax.swing.JInternalFrame {
                 cboGrupos.addItem("grupo : "+lvl.getCodigoGrupo());
             
         }
-        
+        /*Inglés Para Niños
+Inglés para Jóvenes y Adultos
+Conversation Program
+Spanish Program for foreigners
+Methodology for EFL Teachers
+Teaching English to Kids
+Super Youth*/
     }
 
     /**
@@ -57,7 +63,7 @@ public class FrmRegistroMatricula extends javax.swing.JInternalFrame {
         cboGrupos = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtCodMatricula = new javax.swing.JTextField();
-        jclFechaPago = new com.toedter.calendar.JCalendar();
+        jclFechaPago = new com.toedter.calendar.JDateChooser();
 
         setClosable(true);
         setIconifiable(true);
@@ -93,8 +99,6 @@ public class FrmRegistroMatricula extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Nivel De Estudios:");
 
-        cboNivelEstudios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inglés Para Niños", "Inglés para Jóvenes y Adultos", "Conversation Program", "Spanish Program for foreigners", "Methodology for EFL Teachers", "Teaching English to Kids", "Super Youth" }));
-
         jLabel3.setText("Grupos Disponibles :");
 
         jLabel4.setText("Codigo de matricula :");
@@ -116,40 +120,40 @@ public class FrmRegistroMatricula extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGap(7, 7, 7)
+                                            .addComponent(jLabel2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(cboNivelEstudios, 0, 1, Short.MAX_VALUE))
                                         .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel3)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cboGrupos, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGap(20, 20, 20)
+                                            .addComponent(jLabel8)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jclFechaPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addGap(69, 69, 69)
                                             .addComponent(jLabel9)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addGap(7, 7, 7)
-                                                .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(cboNivelEstudios, 0, 1, Short.MAX_VALUE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cboGrupos, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(3, 3, 3))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(20, 20, 20)
-                                    .addComponent(jLabel8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jclFechaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(47, 47, 47))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(44, 44, 44)))
+                                .addComponent(txtCodMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)))))
                 .addContainerGap(24, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(108, 108, 108))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,9 +185,9 @@ public class FrmRegistroMatricula extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jclFechaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(31, 31, 31)
                 .addComponent(btnAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
 
         pack();
@@ -192,15 +196,15 @@ public boolean captchaCampos(){
     if(cboGrupos.getSelectedIndex()==-1)
     return false;
     else{
-       if(txtCodMatricula.getText().equalsIgnoreCase(null))
+       if(txtCodMatricula.getText().isEmpty())
            return false;
-       else{if(txtMonto.getText().equalsIgnoreCase(null))
+       else{if(txtMonto.getText().isEmpty())
             return false;
        else{
-            if(txtDocIdentidad.getText().equalsIgnoreCase(null))
+            if(txtDocIdentidad.getText().isEmpty())
                  return false;
             else{
-             if(jclFechaPago.getCalendar().equals(null))
+             if(jclFechaPago.getDateFormatString().isEmpty())
                   return false;
              else{
                 if(cboNivelEstudios.getSelectedIndex()==-1)
@@ -232,8 +236,10 @@ return true;}
         int captcha =Estudiante.verificacionDocIden(doc);
          
             if(captcha ==-1){
-                int desicion = JOptionPane.showConfirmDialog(rootPane, "DOCUMENTO DE IDENTIDAD NO ENCONTRADO-- INGRESE UN DOC VALIDO");
-                  Matricula m = new Matricula();
+               JOptionPane.showConfirmDialog(rootPane, "DOCUMENTO DE IDENTIDAD NO ENCONTRADO-- INGRESE UN DOC VALIDO");}
+            else{
+                  if(captchaCampos()){
+                      Matricula m = new Matricula();
                   m.setCodigoGrupo((String) cboGrupos.getSelectedItem());
                   m.setCodigoMatricula(txtCodMatricula.getText());
                   m.setCuotaMensual(Double.parseDouble(txtMonto.getText()));
@@ -241,7 +247,10 @@ return true;}
                   m.setFechaPago(jclFechaPago.getCalendar());
                   m.setCodNivelEstudiado((String) cboNivelEstudios.getSelectedItem());
                   Lista_Matricula.registrarMatricula(m);
-        
+                  JOptionPane.showMessageDialog(rootPane, "MATRICULA REGISTRADA CON EXITO", "mensaje del sistema", HEIGHT);
+                  }
+                  else
+                      JOptionPane.showConfirmDialog(rootPane, "NO DEBE DEJAR NINGUN CAMPO EN BLANCO", "mensaje del sistema", WIDTH);
             }
     }//GEN-LAST:event_btnAsignarActionPerformed
 
@@ -258,7 +267,7 @@ return true;}
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private com.toedter.calendar.JCalendar jclFechaPago;
+    private com.toedter.calendar.JDateChooser jclFechaPago;
     private javax.swing.JTextField txtCodMatricula;
     private javax.swing.JTextField txtDocIdentidad;
     private javax.swing.JTextField txtMonto;
