@@ -26,12 +26,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setResizable(false);
         CargarHorarios();
         registroProgramas();
+        
        
     }
 public void registroProgramas(){
 for (int i = 0; i < 12; i++) {
             Programa pr = new Programa();
             pr.setTipoPrograma("Adultos");
+             pr.setCodPrograma(i+"A");
+            
             if(i==0){
                 pr.setTipoNivel("Regular");
                 pr.setSubNivel("Pre-basico");
@@ -80,14 +83,18 @@ for (int i = 0; i < 12; i++) {
                 pr.setTipoNivel("Super Intensivo");
                 pr.setSubNivel("Avanzado");
             }
+           
             Lista_Programas.registrarPrograma(pr);
         }
         for (int i = 0; i < 4; i++) {
              Programa pr = new Programa();
             pr.setTipoPrograma("Niños");
+            pr.setCosto(185);
+            pr.setCodPrograma(i+"N");
         if(i==0){
                 pr.setTipoNivel("Kinder");
                 pr.setSubNivel(null);
+                
             }
             if(i==1){
                 pr.setTipoNivel("pre-Kinder");
@@ -109,7 +116,7 @@ public void CargarHorarios(){
     Horario a = new Horario(); 
              
         a.setTipo("niños");
-        a.setCodigoHorario(0);
+        a.setCodigoHorario("0N");
         String horainicio = "3:00 pm";
         a.setHoraInicio(horainicio);
         String horafin = "5:00 PM";
@@ -119,7 +126,7 @@ public void CargarHorarios(){
         
        Horario b = new Horario();
        b.setTipo("niños");
-       b.setCodigoHorario(1);
+       b.setCodigoHorario("1N");
          String horainicio2 ="5:00 pm";
         b.setHoraInicio(horainicio2);
         String horafin3 = "6:30 pm";
@@ -130,7 +137,7 @@ public void CargarHorarios(){
         
         Horario c = new Horario();
         c.setTipo("niños");
-        c.setCodigoHorario(2);
+        c.setCodigoHorario("2N");
          String horainicio4 = "8, 00 am";
         c.setHoraInicio(horainicio4);
         String horafin5 = "10, 30 am";
@@ -140,7 +147,7 @@ public void CargarHorarios(){
         
          Horario d = new Horario();
          d.setTipo("niños");
-         d.setCodigoHorario(3);
+         d.setCodigoHorario("3N");
          String horainicio6 ="10, 30 am";
         d.setHoraInicio(horainicio6);
         String horafin7 = "1:00 pm";
@@ -150,7 +157,7 @@ public void CargarHorarios(){
         
         Horario e = new Horario();
          e.setTipo("adultos");
-         e.setCodigoHorario(4);
+         e.setCodigoHorario("0A");
           String horainicio8 ="8:00";
         e.setHoraInicio(horainicio8);
         String horafin9 = "9:30";
@@ -159,7 +166,7 @@ public void CargarHorarios(){
         Lista_Horarios.registrarHorario(e);
 
         Horario f = new Horario();
-        f.setCodigoHorario(5);
+        f.setCodigoHorario("1A");
             f.setTipo("adultos");
              String horainicio10 = "9:30";
         f.setHoraInicio(horainicio10);
@@ -169,7 +176,7 @@ public void CargarHorarios(){
         Lista_Horarios.registrarHorario(f);
         
         Horario g = new Horario();
-        g.setCodigoHorario(6);
+        g.setCodigoHorario("2A");
          g.setTipo("adultos");
            String horainicio12 = "4:30";
         g.setHoraInicio(horainicio12);
@@ -179,7 +186,7 @@ public void CargarHorarios(){
         Lista_Horarios.registrarHorario(g);
         
         Horario h = new Horario();
-        h.setCodigoHorario(7);
+        h.setCodigoHorario("3A");
          h.setTipo("adultos");
          String horainicio14 = "6:30";
         h.setHoraInicio(horainicio14);
@@ -189,7 +196,7 @@ public void CargarHorarios(){
         Lista_Horarios.registrarHorario(h);
         
         Horario i = new Horario();
-        i.setCodigoHorario(8);
+        i.setCodigoHorario("4A");
          i.setTipo("adultos");
           String horainicio16 = "8:30";
         i.setHoraInicio(horainicio16);
@@ -199,7 +206,7 @@ public void CargarHorarios(){
          Lista_Horarios.registrarHorario(i);
          
         Horario j = new Horario();
-        j.setCodigoHorario(9);
+        j.setCodigoHorario("5A");
          j.setTipo("adultos");
          String horainicio18 = "9:00";
         j.setHoraInicio(horainicio18);
@@ -209,7 +216,7 @@ public void CargarHorarios(){
         Lista_Horarios.registrarHorario(j);
         
         Horario k = new Horario();
-        k.setCodigoHorario(10);
+        k.setCodigoHorario("6A");
         k.setTipo("adultos");
          String horainicio20 = "3:00";
         k.setHoraInicio(horainicio20);
@@ -549,7 +556,7 @@ public void CargarHorarios(){
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
- FrmReporteA obj = new FrmReporteA();
+ FrmListadoAprobadosDesaprobados obj = new FrmListadoAprobadosDesaprobados();
        jPanel1.add(obj);
         obj.setVisible(true);
         desaparecer();

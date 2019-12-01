@@ -24,7 +24,7 @@ public class Lista_Estudiantes {
         
         for (int i = 0; i <datillos.Cantidad(); i++) {
             Estudiante e = (Estudiante) datillos.Obtener(i);
-            if(e.getDocumentoIdentidad().equalsIgnoreCase(codigo))
+            if(e.getCodigoEstudiante().equalsIgnoreCase(codigo))
                 return i;
         }
     return -1;}

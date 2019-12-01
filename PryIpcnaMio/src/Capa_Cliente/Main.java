@@ -8,16 +8,13 @@ package Capa_Cliente;
 
 import javax.swing.UIManager;
 
-
 public class Main {
 //    gl..ss
 
-
-    
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         FrmLogin obj = new FrmLogin();
         obj.setVisible(true);
         UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
     }
-    
+
 }

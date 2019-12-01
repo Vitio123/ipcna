@@ -65,6 +65,11 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Documento de identidad:");
 
+        txtDocIdentidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDocIdentidadActionPerformed(evt);
+            }
+        });
         txtDocIdentidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDocIdentidadKeyTyped(evt);
@@ -153,6 +158,11 @@ public class FrmGestionarDocente extends javax.swing.JInternalFrame {
 
         cboSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sin asignar", "Masculino", "Femenino" }));
 
+        txtCodDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodDocenteActionPerformed(evt);
+            }
+        });
         txtCodDocente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCodDocenteKeyTyped(evt);
@@ -275,8 +285,10 @@ public DefaultTableModel tabla(){
     tablaAlum.addColumn("NOMBRE");
     tablaAlum.addColumn("APELLIDOS");
     tablaAlum.addColumn("DOCUMENTO DE IDENTIDAD");
+    tablaAlum.addColumn("ESPECIALIDAD");
     tablaAlum.addColumn("TITULO");
     tablaAlum.addColumn("CODIGO DOCENTE");
+    
     Object[] arreglo = new Object [6];
     for (int i = 0; i < datos.Cantidad(); i++) {
         Docente E =  (Docente) datos.Obtener(i);
@@ -355,16 +367,17 @@ public int camposNulos(){
            Lista_Docentes.registrarDoc(objDocente);
            
            JOptionPane.showMessageDialog(this, "Docente registrado correctamente","Sistema",JOptionPane.INFORMATION_MESSAGE);
+            txtCodDocente.setText("");
+            txtDocIdentidad.setText("");
+            txtNombre.setText("");
+            txtApellidos.setText("");
+             txtTitulo.setText("");
+            txtEspecialidad.setText("");
+            txtCodDocente.requestFocus();
         }else{
             JOptionPane.showMessageDialog(this,"Docente ya Registrado","Sistema",JOptionPane.ERROR_MESSAGE);
         }}
-        txtCodDocente.setText("");
-        txtDocIdentidad.setText("");
-        txtNombre.setText("");
-        txtApellidos.setText("");
-        txtTitulo.setText("");
-        txtEspecialidad.setText("");
-        txtCodDocente.requestFocus();
+       
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -502,6 +515,14 @@ public int camposNulos(){
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       jTable1.setModel(tabla());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtCodDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodDocenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodDocenteActionPerformed
+
+    private void txtDocIdentidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDocIdentidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDocIdentidadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

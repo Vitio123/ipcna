@@ -2,6 +2,8 @@ package Capa_Logica;
 import java.util.Calendar;
 public class Mensualidad {
 
+   
+
 	private String DocumentoIdentidad;
 	private Calendar fechaPago;
 	private double monto;
@@ -21,6 +23,12 @@ public class Mensualidad {
     public void setMonto(double monto) {
         this.monto = monto;
     }
+ public Calendar getFechaPago() {
+        return fechaPago;
+    }
 
+    public void setFechaPago(Calendar fechaPago) {
+        this.fechaPago = fechaPago;
+    }
 	
 }

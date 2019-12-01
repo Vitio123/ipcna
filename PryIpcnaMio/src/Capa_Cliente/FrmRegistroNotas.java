@@ -8,6 +8,7 @@ package Capa_Cliente;
 import Capa_Datos.Lista_Estudiantes;
 import Capa_Datos.Lista_Notas;
 import Capa_Logica.Estudiante;
+import Capa_Logica.Matricula;
 import Capa_Logica.Notas;
 import TListas.TLista;
 import javax.swing.JOptionPane;
@@ -45,7 +46,6 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
         txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtCodGrupo = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtNota1 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
@@ -79,28 +79,36 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Apellidos:");
 
+        txtApellido.setEditable(false);
         txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtApellidoKeyTyped(evt);
             }
         });
 
+        txtNombre.setEditable(false);
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
             }
         });
 
-        jLabel2.setText("Codigo de Grupo :");
+        jLabel2.setText("Codigo de Matricula:");
 
-        jButton3.setText("...");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        txtCodGrupo.setEditable(false);
 
         jLabel5.setText("Nota Primera Evalución:");
+
+        txtNota1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNota1ActionPerformed(evt);
+            }
+        });
+        txtNota1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNota1KeyTyped(evt);
+            }
+        });
 
         jButton4.setText("+");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +130,17 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
+            }
+        });
+
+        txtNota2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNota2ActionPerformed(evt);
+            }
+        });
+        txtNota2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNota2KeyTyped(evt);
             }
         });
 
@@ -147,62 +166,61 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel7)
-                .addContainerGap(470, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(132, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNota2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7))
-                            .addComponent(jLabel9))
-                        .addGap(30, 30, 30))
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCodGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jButton5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNota1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4))
-                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel6))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodigoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButton2)))
-                .addContainerGap(131, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(227, 227, 227)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNota2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton7))
+                                    .addComponent(jLabel9))
+                                .addGap(30, 30, 30))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtCodGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(25, 25, 25)
+                                        .addComponent(jButton5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtNota1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton4))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(17, 17, 17))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCodigoEst, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jButton2)))))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,8 +243,7 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtCodGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(txtCodGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -245,7 +262,7 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -253,19 +270,27 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String estudiante = txtCodigoEst.getText();
+       if(Matricula.matriculaAlumno(estudiante)==null){
+       JOptionPane.showMessageDialog(rootPane, "ESTE ALUMNO NO ESTA MATRICULADO", "mensaje del sistema", HEIGHT);
+       }else{
         Lista_Estudiantes objEstud = new Lista_Estudiantes();
         //listaEstudiant de la clase Estudiante
         TLista listaEstudiant  = objEstud.obtener();
         int pos = objEstud.BuscarAlumno(estudiante);
+          
         
         if (pos != -1) {
             Estudiante objEstu = (Estudiante) listaEstudiant.Obtener(pos);
             txtNombre.setText(objEstu.getNombre());
-            txtNombre.setText(objEstu.getApellidos());
+            txtApellido.setText(objEstu.getApellidos());
+              Matricula MatriEst =(Matricula) Matricula.matriculaAlumno(estudiante);
+             txtCodGrupo.setText(MatriEst.getCodigoGrupo());
         }
         else{
             JOptionPane.showMessageDialog(this, "No existe el alumno");
         }
+       }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
@@ -285,26 +310,6 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
             dentro de la condcion,por lo tanto intuimos que es lo contrario :)*/
         }
     }//GEN-LAST:event_txtNombreKeyTyped
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-        String grupo = txtCodGrupo.getText();
-        String estudiante = txtCodigoEst.getText();
-        //Lista del la clase Lista_Notas
-        Lista_Notas objGrupoest = new Lista_Notas();
-        TLista listaGrupEst = objGrupoest.obtener();
-        int pos = objGrupoest.buscarGruposEstudiante(grupo,estudiante);
-        if (pos != -1) {
-            Notas objNotas = (Notas) listaGrupEst.Obtener(pos);
-            txtNota1.setText(String.valueOf(objNotas.getNota1()));
-            txtNota2.setText(String.valueOf(objNotas.getNota2()));
-            jLabel9.setText(objNotas.getEstado());
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "No existe el Grupo");
-        }
-
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        
@@ -359,16 +364,15 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
         if(camposVacios()!=1){
         String codigoEst = txtCodigoEst.getText();
         
-        String codGrupo = txtCodGrupo.getText();
+        String codMat = txtCodGrupo.getText();
         String nota1 = txtNota1.getText();
         String nota2 = txtNota2.getText();
      
-        int pos = Lista_Notas.buscarGruposEstudiante(codGrupo, codigoEst );
+        int pos = Lista_Notas.buscarMatEstudiante(codMat, codigoEst );
           if(pos!=-1){
         Notas objNotas = new Notas();
         objNotas.setCodigoEstudiante(codigoEst);
-        objNotas.setCodigoGrupo(codGrupo);
-        objNotas.setCodigoGrupo(codGrupo);
+        objNotas.setCodigoMatricula(codMat);
         objNotas.setNota1(Integer.parseInt(nota1));
         objNotas.setNota2(Integer.parseInt(nota2));
               if (txtNota1.getText().isEmpty()||txtNota2.getText().isEmpty()) {
@@ -383,9 +387,31 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this,"Se modificaron correctamente los datos del docente","Sistema",JOptionPane.INFORMATION_MESSAGE);
           }
           else
-              JOptionPane.showMessageDialog(this,"INGRESE UN DOCENTE EXISTENTE","Sistema",JOptionPane.INFORMATION_MESSAGE);}        
+              JOptionPane.showMessageDialog(this,"INGRESE UN ALUMNO EXISTENTE","Sistema",JOptionPane.INFORMATION_MESSAGE);}        
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNota1ActionPerformed
+      
+    }//GEN-LAST:event_txtNota1ActionPerformed
+
+    private void txtNota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNota2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNota2ActionPerformed
+
+    private void txtNota1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNota1KeyTyped
+      char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNota1KeyTyped
+
+    private void txtNota2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNota2KeyTyped
+       char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNota2KeyTyped
     private int camposVacios(){
          if(txtCodigoEst.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Ingresar Codigo del código Estudiante", "SISTEMA", JOptionPane.ERROR_MESSAGE);
@@ -413,7 +439,6 @@ public class FrmRegistroNotas extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

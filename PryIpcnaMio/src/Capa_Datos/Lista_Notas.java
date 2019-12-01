@@ -14,10 +14,10 @@ public class Lista_Notas {
        notas.Adicionar(a);
     }
 
-     public static int buscarGruposEstudiante (String codGrupo,String codEstudiante){
+     public static int buscarMatEstudiante (String codMat,String codEstudiante){
         for (int i = 0; i < notas.Cantidad(); i++) {
             Notas obj = (Notas) notas.Obtener(i);
-            if (obj.getCodigoGrupo().equalsIgnoreCase(codGrupo)&& obj.getCodigoEstudiante().equalsIgnoreCase(codEstudiante)) {
+            if (obj.getCodigoMarticula().equalsIgnoreCase(codMat)&& obj.getCodigoEstudiante().equalsIgnoreCase(codEstudiante)) {
                 return i; 
             }
         }

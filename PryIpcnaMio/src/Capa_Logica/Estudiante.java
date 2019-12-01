@@ -100,7 +100,13 @@ public class Estudiante {
 	 * inactivo
 	 * egresado
 	 */
-	
+    public String getCodigoEstudiante() {
+        return codigoEstudiante;
+    }
+
+    public void setCodigoEstudiante(String codigoEstudiante) {
+        this.codigoEstudiante = codigoEstudiante;
+    }
   //PARTE LOGICA
     //Metodo de verificacion documentoIdentidad
     public static int verificacionDocIden(String codigo) {
@@ -112,13 +118,12 @@ public class Estudiante {
             }
         }
         return -1;
+       
     }
 
-    public String getCodigoEstudiante() {
-        return codigoEstudiante;
-    }
-
-    public void setCodigoEstudiante(String codigoEstudiante) {
-        this.codigoEstudiante = codigoEstudiante;
-    }
+  public static Object estudianteEncontrado (String codigoEst){
+      int pos = Lista_Estudiantes.BuscarAlumno(codigoEst);
+      TLista datos = Lista_Estudiantes.obtener();
+      Object estudiante = datos.Obtener(pos);
+        return estudiante;}
 }

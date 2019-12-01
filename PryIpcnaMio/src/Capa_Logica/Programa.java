@@ -1,5 +1,8 @@
 package Capa_Logica;
 
+import Capa_Datos.Lista_Programas;
+import TListas.TLista;
+
 public class Programa {
 
 	private String tipoPrograma;
@@ -47,4 +50,20 @@ public class Programa {
     public void setCosto(float costo) {
         this.costo = costo;
     }
+
+    public static TLista filtroXtipo(String tipo){
+    
+    return Lista_Programas.filtroPrgrmas(tipo);
+    }
+    
+    public static Object programaEncontrado(String codPrograma){
+        Object programa;
+        TLista datos =Lista_Programas.obtener();
+        int pos=Lista_Programas.buscarProgramas(codPrograma);
+       if(pos !=-1)
+        programa = datos.Obtener(pos);
+       else
+           programa = null;
+    return programa;}
+    
 }

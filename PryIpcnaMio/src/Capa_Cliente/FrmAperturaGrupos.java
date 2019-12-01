@@ -6,15 +6,17 @@
 package Capa_Cliente;
 
 import Capa_Datos.Lista_Docentes;
+import Capa_Datos.Lista_Grupos;
 import Capa_Datos.Lista_Horarios;
 import Capa_Datos.Lista_Programas;
 import Capa_Logica.Docente;
 import Capa_Logica.Horario;
-import Capa_Logica.NivelEstudiado;
+import Capa_Logica.Grupo;
 import Capa_Logica.Programa;
 import TListas.TLista;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -36,6 +38,18 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
             Docente doc = (Docente) datos.Obtener(i);
             cboDocente.addItem(doc.getCodigoDocente()+'-'+doc.getNombre()+' '+doc.getApellidos());
         }
+        TLista listaPro = Lista_Programas.obtener();
+        for (int i = 0; i < listaPro.Cantidad(); i++) {
+            Programa pr = (Programa) listaPro.Obtener(i);
+            if(pr.getTipoNivel().equalsIgnoreCase("regular"))
+                pr.setCosto(285);
+            else if(pr.getTipoNivel().equalsIgnoreCase("intensivo"))
+                pr.setCosto(330);
+            else if(pr.getTipoNivel().equalsIgnoreCase("superintensico"))
+                pr.setCosto(455);
+            else
+                pr.setCosto(185);
+                }
         }
 
         
@@ -62,7 +76,6 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
         cboPrograma = new javax.swing.JComboBox<>();
         cboDocente = new javax.swing.JComboBox<>();
         cboHorario = new javax.swing.JComboBox<>();
-        cldFechaInicio = new com.toedter.calendar.JCalendar();
         jLabel8 = new javax.swing.JLabel();
         cboNivel = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
@@ -72,8 +85,6 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txtGrupo = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtCosto = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -94,6 +105,17 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("Apertura de Grupos ");
+
+        txtVacantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVacantesActionPerformed(evt);
+            }
+        });
+        txtVacantes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtVacantesKeyTyped(evt);
+            }
+        });
 
         cboAsignatura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingles", "Español" }));
 
@@ -131,15 +153,6 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
         });
 
         jLabel9.setText("Grupo :");
-
-        jLabel10.setText("Costo asignado :");
-
-        txtCosto.setEditable(false);
-        txtCosto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCostoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,25 +206,13 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
                         .addGap(70, 70, 70)
                         .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cldFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(97, 97, 97))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(97, 97, 97))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel10)
-                        .addGap(36, 36, 36)
-                        .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(54, 54, 54)
+                .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -222,8 +223,7 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cldFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
+                        .addGap(78, 78, 78)
                         .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -262,11 +262,7 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSubNivel)
                             .addComponent(cboSubNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -288,21 +284,24 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
                 if(h.getTipo().equalsIgnoreCase("niños"))
                     cboHorario.addItem(h.getDiasEstudio()+" "+h.getHoraInicio()+"-  a  -"+h.getHoraFin());
                }       
-              txtCosto.setText("185"); 
             }
            
        else{
+                  
+          cboNivel.removeAllItems();
+          cboHorario.removeAllItems();
                         lblSubNivel.setVisible(true);
                         cboSubNivel.setVisible(true);
-                        cboNivel.remove(this);
+                       
                         cboNivel.addItem("regular");
                         cboNivel.addItem("intensivo");
-                        cboNivel.addItem("Super-intensivo");
-            for (int i = 0; i < datos.Cantidad(); i++) {
+                        cboNivel.addItem("superintensivo");
+            for (int i = 0; i < 4; i++) {
                 Programa pr = (Programa) datos.Obtener(i);
                 if(pr.getTipoPrograma().equalsIgnoreCase("adultos")){
-                 cboSubNivel.addItem(pr.getSubNivel());    
-                }  
+                    
+                    cboSubNivel.addItem(pr.getSubNivel());  
+                }
           
             }
                  TLista a = Lista_Horarios.obtener();
@@ -315,39 +314,116 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
         }   
        
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+public boolean camposNulos(){
+    if (txtGrupo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "DEBE INGRESAR CODIGO DE ESTUDIANTE", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            txtGrupo.requestFocus();
+            return true;
+        }
+      if (txtVacantes.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "DEBE INGRESAR DOCUMENTO DE IDENTIDAD", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            txtVacantes.requestFocus();
+            return true;
+        }
+      
+        if (cboAsignatura.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(this, "DEBE SELECCIONAR TIPO DE DOCUMENTO", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            cboAsignatura.requestFocus();
+            return true;
+        }
+        if (cboHorario.getSelectedIndex()== -1) {
+            JOptionPane.showMessageDialog(this, "DEBE INGRESAR SU NOMBRE ", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            cboHorario.requestFocus();
+            return true;
+        }
+        if (cboNivel.getSelectedIndex()== -1) {
+            JOptionPane.showMessageDialog(this, "DEBE INGRESAR SU APELLIDO", "SISTEMA", JOptionPane.ERROR_MESSAGE);
+            cboNivel.requestFocus();
+            return true;
+        }
+          
         
-        NivelEstudiado estudy = new NivelEstudiado();
-       // aunn falta validar y registrar porque no se si queda los cbos asi o trabajamos con otras clases 
+    
+    return false;}
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+   
+        Grupo estudy = new Grupo();
+        if(camposNulos()){
+        
+            JOptionPane.showMessageDialog(rootPane, "FALTAN INGRESAR DATOS ", "mensaje de sistema", HEIGHT);
+        }
+        else{
         estudy.setAsignatura((String) cboAsignatura.getSelectedItem());
-         cboDocente.getSelectedItem();
-        cboHorario.getSelectedItem();
-        cboNivel.getSelectedItem();
-        cboPrograma.getSelectedItem();
-        cboSubNivel.getSelectedItem();
+            int pos =cboDocente.getSelectedIndex();
+            TLista lista=Lista_Docentes.Consultar();
+            Docente doc =(Docente) lista.Obtener(pos);
+            estudy.setCodigoDocente(doc.getCodigoDocente());
+        TLista horariosFiltrados =Horario.filtroTipo((String) cboPrograma.getSelectedItem());
+            int posicion =cboHorario.getSelectedIndex();
+           Horario hor =(Horario) horariosFiltrados.Obtener(posicion);
+           String codigoHor = hor.getCodigoHorario();
+           estudy.setCodigoHorario(codigoHor);
+        int posic = cboPrograma.getSelectedIndex();
+        TLista programasFil = Programa.filtroXtipo((String) cboPrograma.getSelectedItem());
+        Programa pr = (Programa) programasFil.Obtener(posic);
+               String codigoPrograma = pr.getCodPrograma();
+               estudy.setCodPrograma(codigoPrograma);
         estudy.setVacantes(Integer.parseInt(txtVacantes.getText()));
          estudy.setCodigoGrupo(txtGrupo.getText());
         estudy.setFechaInicio(cldFechaInicio.getCalendar());
- 
+        if(verificacion(cldFechaInicio.getCalendar(),txtGrupo.getText(),(String)cboAsignatura.getSelectedItem()))
+            JOptionPane.showMessageDialog(rootPane, "EL GRUPO YA HA SIDO CREADO ANTERIORMENTE DIGITE UNA FECHA DIFERENTE, UN GRUPO DISTINTO "
+                    + "O UNA DIFERENTE ASIGNATURA", "mensaje de sistema", HEIGHT);
+        else{  Lista_Grupos.registrarGroup(estudy);
+         JOptionPane.showMessageDialog(rootPane, "GRUPO REGISTRADO CON EXITO", "mensaje de sistema", HEIGHT);
+         limpiar();}
+        }
     }//GEN-LAST:event_btnCrearActionPerformed
-
-    private void txtCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCostoActionPerformed
-          
-    }//GEN-LAST:event_txtCostoActionPerformed
-
+    public void limpiar(){
+        txtVacantes.setText("");
+        txtGrupo.setText("");
+        cboAsignatura.setSelectedIndex(0);
+        cboDocente.setSelectedIndex(0);
+        cboHorario.removeAllItems();
+        cboNivel.removeAllItems();
+        cboSubNivel.setVisible(false);
+        cboPrograma.setSelectedIndex(0);
+    }
+    public boolean verificacion(Calendar fecha,String grupo,String asignatura){
+        
+        int g = Grupo.buscarGrupo(fecha, grupo, asignatura);
+            if(g>=0)
+                return true;
+            else 
+                return false;
+ }
     private void cboNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboNivelActionPerformed
-          String c = (String) cboNivel.getSelectedItem();
-          if (c.equalsIgnoreCase("Regular"))
-              txtCosto.setText("285");
-          else{
-              txtCosto.setText("xd");
-          }
+       
     }//GEN-LAST:event_cboNivelActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
+       int i =Grupo.buscarGrupo(cldFechaInicio.getCalendar(),txtGrupo.getText(),(String)cboAsignatura.getSelectedItem());
+      if(i>=0){
+       TLista list = Lista_Grupos.obtener();
+       int seleccion =JOptionPane.showConfirmDialog(rootPane, "¿ESTA SEGURO DE ELIMINAR EL GRUPO SELECCIONADO?", "mensaje de sistema", HEIGHT);
+       if(seleccion == JOptionPane.YES_OPTION){
+           list.Eliminar(i);
+       limpiar();}}
+      else
+      JOptionPane.showMessageDialog(rootPane, "NO SE HA ENCONTRADO EL GRUPO, DIGITE UNA FECHA , GRUPO Y ASIGNATURA CORRECTOS", "mensaje de sistema", HEIGHT);
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtVacantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVacantesActionPerformed
+     
+    }//GEN-LAST:event_txtVacantesActionPerformed
+
+    private void txtVacantesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVacantesKeyTyped
+       
+       char c = evt.getKeyChar();
+        if(!Character.isDigit(c)){
+            evt.consume();
+        }  
+    }//GEN-LAST:event_txtVacantesKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -359,10 +435,8 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cboNivel;
     private javax.swing.JComboBox<String> cboPrograma;
     private javax.swing.JComboBox<String> cboSubNivel;
-    private com.toedter.calendar.JCalendar cldFechaInicio;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -372,7 +446,6 @@ public final class FrmAperturaGrupos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblSubNivel;
-    private javax.swing.JTextField txtCosto;
     private javax.swing.JTextField txtGrupo;
     private javax.swing.JTextField txtVacantes;
     // End of variables declaration//GEN-END:variables

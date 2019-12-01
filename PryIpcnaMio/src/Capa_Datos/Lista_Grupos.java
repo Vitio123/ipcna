@@ -5,7 +5,6 @@
  */
 package Capa_Datos;
 
-import Capa_Logica.Matricula;
 import TListas.TLista;
 import TListas.TListaDin;
 

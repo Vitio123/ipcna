@@ -2,7 +2,7 @@ package Capa_Logica;
 
 public class Notas {
     private String codigoEstudiante;
-	private String codigoGrupo;
+        private String codMatricula;
 	private int nota1;
         private int nota2;
         private String estado;
@@ -15,12 +15,12 @@ public class Notas {
         this.codigoEstudiante = codigoEstudiante;
     }
 
-    public String getCodigoGrupo() {
-        return codigoGrupo;
+    public String getCodigoMarticula() {
+        return codMatricula;
     }
 
-    public void setCodigoGrupo(String codigoGrupo) {
-        this.codigoGrupo = codigoGrupo;
+    public void setCodigoMatricula(String codigoMat) {
+        this.codMatricula = codigoMat;
     }
 
     public int getNota1() {

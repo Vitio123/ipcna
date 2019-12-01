@@ -1,14 +1,16 @@
 package Capa_Logica;
+import Capa_Datos.Lista_Grupos;
+import TListas.TLista;
 import java.util.Calendar;
-public class NivelEstudiado {
+public class Grupo {
 
 	
 	private Calendar fechaInicio;
 	private int vacantes;
-	private String Grupo;
+	private String codGrupo;
 	private String codPrograma;
 	private String asignatura;
-	private int codigoHorario;
+	private String codigoHorario;
 	private String codigoDocente;
 
     public int getVacantes() {
@@ -20,11 +22,11 @@ public class NivelEstudiado {
     }
 
     public String getCodigoGrupo() {
-        return Grupo;
+        return codGrupo;
     }
 
     public void setCodigoGrupo(String codigoGrupo) {
-        this.Grupo = codigoGrupo;
+        this.codGrupo = codigoGrupo;
     }
 
    public String getCodPrograma() {
@@ -43,11 +45,11 @@ public class NivelEstudiado {
         this.asignatura = asignatura;
     }
 
-    public int getCodigoHorario() {
+    public String getCodigoHorario() {
         return codigoHorario;
     }
 
-    public void setCodigoHorario(int codigoHorario) {
+    public void setCodigoHorario(String codigoHorario) {
         this.codigoHorario = codigoHorario;
     }
 
@@ -66,5 +68,15 @@ public class NivelEstudiado {
     public void setFechaInicio(Calendar fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
-
+    
+    public static int buscarGrupo(Calendar fecha, String grupo,String asignatura){
+         TLista datos = Lista_Grupos.obtener();
+        for (int i = 0; i < datos.Cantidad(); i++) {
+             Grupo g = (Grupo) datos.Obtener(i);
+            if(g.getFechaInicio().equals(fecha)||g.getCodigoGrupo().equalsIgnoreCase(grupo))
+                if(g.getAsignatura().equalsIgnoreCase(asignatura))
+                    return i;
+            
+        }
+    return-1;}
 }
